@@ -1,0 +1,9 @@
+.welcome-container {
+    text-align: center;
+    width: 100%;
+}
+
+.go-to-products-button {
+    margin-top: 100px;
+    padding: 15px;
+}
