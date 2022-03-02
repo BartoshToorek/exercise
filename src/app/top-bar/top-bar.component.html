@@ -1,11 +1,15 @@
-<a [routerLink]="['/']">
-  <h1>SAP Merchandise Store</h1>
-</a>
-
-<a class="button fancy-button"><i class="material-icons">shopping_cart</i>Checkout</a>
-
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
--->
+<nav class="navbar navbar-expand-lg navbar-light" style="background: #cccccc;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">SAP Merchandise Store</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Cat Facts - Coming soon!</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                <button class="bi bi-cart btn btn-primary" disabled> Cart</button>
+            </span>
+        </div>
+    </div>
+</nav>
