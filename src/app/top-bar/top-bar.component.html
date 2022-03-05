@@ -13,6 +13,11 @@
                     <a class='nav-link' routerLink='/products'><button class="'btn btn-primary">Product List</button></a>
                 </li>
             </ul>
+            <span class="navbar-item">
+                <select>
+                <option *ngFor="let lang of languages">{{lang.name}}</option>
+                </select>
+            </span>
             <span class="navbar-text">
                 <button class="bi bi-cart btn btn-primary" disabled> Cart</button>
             </span>
