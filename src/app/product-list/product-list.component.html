@@ -21,7 +21,8 @@
                 <tbody>
                     <tr *ngFor='let product of products'>
                         <td>{{product.name}}</td>
-                        <td>{{product.price}}{{this.currency ? 'EUR' : 'USD'}}</td>
+                        <td *ngIf="this.currency">{{product.price}}EUR</td>
+                        <td *ngIf="!this.currency">{{product.price*1.11 | number: '1.2-2'}}USD</td>
                         <td>{{product.description}}</td>
                     </tr>
                 </tbody>
