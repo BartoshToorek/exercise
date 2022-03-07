@@ -9,6 +9,7 @@ import {HomeComponent} from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import { ProductListComponent } from './product-list/product-list.component';
 import {RouterModule} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     imports: [
@@ -19,7 +20,8 @@ import {RouterModule} from "@angular/router";
         RouterModule.forRoot([
             { path: 'products', component: ProductListComponent},
             { path: 'home', component: HomeComponent}
-        ])
+        ]),
+        HttpClientModule
     ],
     declarations: [
         AppComponent,
