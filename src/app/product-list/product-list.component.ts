@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {productService} from "../services/product.service";
 import {Product} from "../models/Product";
+import {Observable} from "rxjs";
 
 @Component({
   templateUrl: './product-list.component.html',
@@ -9,14 +10,17 @@ import {Product} from "../models/Product";
 })
 export class ProductListComponent implements OnInit{
   pageTitle: string = 'Product List';
-  products: Product[] = [];
   currency: boolean = false;
+
+  productsList$: Observable<Product[]>;
 
   constructor(private productService: productService) {
   }
 
   ngOnInit() {
-    this.products = this.productService.getProducts();
+    this.productService.getData().subscribe((productList: Product[]) =>{
+      this.productsList$ = productList;
+    });
   }
 
   currencySwitch(): void{

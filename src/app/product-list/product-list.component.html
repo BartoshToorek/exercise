@@ -4,7 +4,7 @@
     </div>
     <div class='card-body'>
         <div class='table-responsive'>
-            <table class='table' *ngIf='products.length'>
+            <table class='table' *ngIf='productsList$ | async as products'>
                 <thead>
                 <tr>
                     <th>Product</th>
@@ -12,19 +12,19 @@
                     <th>Description</th>
                     <th>
                         <button class="'btn btn-primary"
-                        (click)='currencySwitch()'>
+                                (click)='currencySwitch()'>
                             {{this.currency ? 'USD' : 'EUR'}}
                         </button>
                     </th>
                 </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let product of products'>
-                        <td>{{product.name}}</td>
-                        <td *ngIf="this.currency">{{product.price}}EUR</td>
-                        <td *ngIf="!this.currency">{{product.price*1.11 | number: '1.2-2'}}USD</td>
-                        <td>{{product.description}}</td>
-                    </tr>
+                <tr *ngFor='let product of products'>
+                    <td>{{product.name}}</td>
+                    <td *ngIf="this.currency">{{product.price}}EUR</td>
+                    <td *ngIf="!this.currency">{{product.price*1.11 | number: '1.2-2'}}USD</td>
+                    <td>{{product.description}}</td>
+                </tr>
                 </tbody>
             </table>
         </div>
