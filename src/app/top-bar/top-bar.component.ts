@@ -5,7 +5,6 @@ import {HttpService} from "../services/http.service";
     selector: 'app-top-bar',
     templateUrl: './top-bar.component.html',
     styleUrls: ['./top-bar.component.css'],
-    providers: [HttpService]
 })
 export class TopBarComponent{
 

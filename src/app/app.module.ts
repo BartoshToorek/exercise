@@ -10,6 +10,8 @@ import {AppRoutingModule} from './app-routing.module';
 import { ProductListComponent } from './product-list/product-list.component';
 import {RouterModule} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
+import {InMemoryWebApiModule} from "angular-in-memory-web-api";
+import {AppData} from "../app-data";
 
 @NgModule({
     imports: [
@@ -18,9 +20,10 @@ import {HttpClientModule} from "@angular/common/http";
         AppRoutingModule,
         BrowserAnimationsModule,
         RouterModule.forRoot([
-            { path: 'products', component: ProductListComponent},
-            { path: 'home', component: HomeComponent}
+            {path: 'products', component: ProductListComponent},
+            {path: 'home', component: HomeComponent}
         ]),
+        // InMemoryWebApiModule.forRoot(AppData, {delay: 100}),
         HttpClientModule
     ],
     declarations: [
@@ -33,5 +36,6 @@ import {HttpClientModule} from "@angular/common/http";
         AppComponent
     ]
 })
+
 export class AppModule {
 }

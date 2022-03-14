@@ -7,10 +7,11 @@ import {CatFact} from "../models/CatFact";
   providedIn: 'root'
 })
 export class HttpService {
+    private catFactUrl = 'https://catfact.ninja/fact'
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-    catFact$ = this.httpClient.get<CatFact>('https://catfact.ninja/fact')
+    catFact$ = this.http.get<CatFact>(this.catFactUrl)
         .pipe(
             tap(data => console.log("Fakt: ", JSON.stringify(data)))
         );

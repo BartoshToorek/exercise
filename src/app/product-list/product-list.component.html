@@ -4,7 +4,7 @@
     </div>
     <div class='card-body'>
         <div class='table-responsive'>
-            <table class='table' *ngIf='products.length'>
+            <table class='table' *ngIf='productsList$ | async as products'>
                 <thead>
                 <tr>
                     <th>Product</th>

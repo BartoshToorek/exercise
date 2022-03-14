@@ -1,22 +1,19 @@
 import {Component, OnInit} from '@angular/core';
-import {productService} from "../services/product.service";
 import {Product} from "../models/Product";
+import {ProductService} from "../services/product.service";
 
 @Component({
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
-  providers: [productService]
 })
-export class ProductListComponent implements OnInit{
+export class ProductListComponent{
   pageTitle: string = 'Product List';
   products: Product[] = [];
   currency: boolean = false;
 
-  constructor(private productService: productService) {
-  }
+  productsList$ = this.productService.products$;
 
-  ngOnInit() {
-    this.products = this.productService.getProducts();
+  constructor(private productService: ProductService) {
   }
 
   currencySwitch(): void{
