@@ -1,24 +1,17 @@
 import { Injectable } from '@angular/core';
-import {CatFact} from "../models/CatFact";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {map} from 'rxjs/operators'
+import {tap} from "rxjs";
+import {CatFact} from "../models/CatFact";
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-    catFact: CatFact[] = [];
-
   constructor(private httpClient: HttpClient) { }
 
-  getRequest(): CatFact[] {
-      this.httpClient.get<any>('https://catfact.ninja/fact')
-          .subscribe(response =>{
-            console.log("w serwisie: ",response);
-            this.catFact = response;
-          })
-    return this.catFact
-  }
+    catFact$ = this.httpClient.get<CatFact>('https://catfact.ninja/fact')
+        .pipe(
+            tap(data => console.log("Fakt: ", JSON.stringify(data)))
+        );
 }

@@ -3,8 +3,8 @@
         <a class="navbar-brand" href="/">SAP Merchandise Store</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" *ngFor="let cat of response">{{cat.fact}}</a>
+                <li class="nav-item" *ngIf="response$ | async as response">
+                    <a class="nav-link disabled" href="#">{{response.fact}}</a>
                 </li>
                 <li class="nav-item">
                     <a class='nav-link' routerLink='/home'>Home</a>
@@ -13,11 +13,11 @@
                     <a class='nav-link' routerLink='/products'><button class="'btn btn-primary">Product List</button></a>
                 </li>
             </ul>
-            <span class="navbar-item">
-                <select>
-                <option *ngFor="let lang of languages">{{lang.name}}</option>
-                </select>
-            </span>
+<!--            <span class="navbar-item">-->
+<!--                <select>-->
+<!--                <option *ngFor="let lang of languages">{{lang.name}}</option>-->
+<!--                </select>-->
+<!--            </span>-->
             <span class="navbar-text">
                 <button class="bi bi-cart btn btn-primary" disabled> Cart</button>
             </span>
