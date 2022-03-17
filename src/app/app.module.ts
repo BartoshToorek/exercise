@@ -10,6 +10,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { ProductListComponent } from './product-list/product-list.component';
 import {RouterModule} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
+import { CartComponent } from './cart/cart/cart.component';
 
 @NgModule({
     imports: [
@@ -19,7 +20,8 @@ import {HttpClientModule} from "@angular/common/http";
         BrowserAnimationsModule,
         RouterModule.forRoot([
             { path: 'products', component: ProductListComponent},
-            { path: 'home', component: HomeComponent}
+            { path: 'home', component: HomeComponent},
+            { path: 'cart', component: CartComponent}
         ]),
         HttpClientModule
     ],
@@ -27,7 +29,8 @@ import {HttpClientModule} from "@angular/common/http";
         AppComponent,
         TopBarComponent,
         HomeComponent,
-        ProductListComponent
+        ProductListComponent,
+        CartComponent
     ],
     bootstrap: [
         AppComponent

@@ -3,32 +3,35 @@
         {{pageTitle}}
     </div>
     <div class='card-body'>
+        <div class="col-3">
+            <select class="form-control"
+                    (change)="onSelected($any($event.target).value)">
+                <option *ngFor="let currency of currenciesList$ | async"
+                        [value]="currency.id">{{ currency.region }}</option>
+            </select>
+        </div>
         <div class='table-responsive'>
-            <table class='table' *ngIf='productsList$ | async as products'>
+            <table class='table' *ngIf='productList$ | async as products'>
                 <thead>
                 <tr>
                     <th>Product</th>
                     <th>Price</th>
                     <th>Description</th>
-                    <th>
-                        <button class="'btn btn-primary"
-                                (click)='currencySwitch()'>
-                            {{this.currency ? 'USD' : 'EUR'}}
-                        </button>
-                    </th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="productsWithCalculation$ | async as products">
                 <tr *ngFor='let product of products'>
                     <td>{{product.name}}</td>
-                    <td *ngIf="this.currency">{{product.price}}EUR</td>
-                    <td *ngIf="!this.currency">{{product.price*1.11 | number: '1.2-2'}}USD</td>
+                    <td>{{product.price | number: '1.2-2'}}{{product.currencyName}}</td>
                     <td>{{product.description}}</td>
+                    <div class="container" style="display: flex;justify-content: center; gap: 5%;">
+                        <button class="btn btn-primary" (click)="addProductToCart(product.id)">Add To Cart</button>
+                    </div>
                 </tr>
                 </tbody>
+                <br>
             </table>
         </div>
-
     </div>
 
 </div>

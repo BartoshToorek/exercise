@@ -1,6 +1,6 @@
 export interface Currency{
     id: number;
     region: string;
-    currency: string;
+    name: string;
     exchangeRate: number;
 }

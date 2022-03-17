@@ -4,4 +4,5 @@ export interface Product {
     price: number;
     basePrice: number;
     description: string;
+    currencyName?: string;
 }
